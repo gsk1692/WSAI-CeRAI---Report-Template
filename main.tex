@@ -1,0 +1,201 @@
+% You can use the report class if you need chapters
+\documentclass[11pt,a4paper,twoside]{paper}
+% \documentclass[11pt,a4paper,twoside]{report}
+
+% Packages for customization
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[most]{tcolorbox}
+\usepackage{cuted}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{lipsum}  % For dummy text
+\usepackage[twoside]{fancyhdr}  % For custom headers
+\usepackage{float}
+
+% Custom colors
+\definecolor{magazineBlue}{HTML}{0056A8}
+\definecolor{magazineGray}{HTML}{F5F5F5}
+\definecolor{magazineAccent}{HTML}{FF4500}
+\definecolor{iitblue}{RGB}{0,32,91}
+\setcounter{secnumdepth}{4}
+% \setcounter{chapter}{1}
+
+% Section formatting for a modern look
+\titleformat{\chapter}{\Large\bfseries\color{magazineBlue}}{\thechapter}{0.5em}{}
+\titleformat{\section}{\Large\bfseries\color{magazineBlue}}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries\color{magazineAccent}}{\thesubsection}{0.5em}{}
+
+
+% Custom tcolorbox styles for magazine-style boxes
+\tcbset{
+    magazineBox/.style={
+        colback=magazineGray,
+        colframe=magazineBlue,
+        coltitle=white,
+        fonttitle=\bfseries,
+        boxrule=1mm,
+        arc=5mm,
+        width=\columnwidth,
+        left=3mm,
+        right=3mm,
+        top=3mm,
+        bottom=3mm,
+        breakable,
+    },
+    highlightBox/.style={
+        colback=magazineAccent!10,
+        colframe=magazineAccent,
+        coltitle=white,
+        fonttitle=\bfseries,
+        boxrule=0.8mm,
+        arc=3mm,
+        width=\columnwidth,
+        left=3mm,
+        right=3mm,
+        top=3mm,
+        bottom=3mm,
+        breakable,
+    }
+}
+
+
+% Custom header setup
+\pagestyle{fancy}
+\fancyhf{}  % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0.4pt}  % Header line thickness
+
+% For flipping headers. Comment if you are using same header everywhere.
+\fancyhead[LO,RE]{{\includegraphics[height=0.75cm]{figures/cerai-logo-only.png}}}
+\fancyhead[LE,RO]{{\thepage}}
+
+% Uncomment if you don't want to use flipping headers
+% \fancyhead[L]{\includegraphics[height=0.75cm]{figures/cerai-logo-only.png}}  % Logo space
+% \fancyhead[R]{\textbf{\thepage}}  % Page number
+
+\fancyhead[C]{\textbf{My Cool Magazine-Style Report}}  % Report title
+\fancyfoot[C]{% Footer (optional)
+\rule{\textwidth}{0.4pt}
+{\centering © 2025 Author Name. All rights reserved.\par}
+}
+
+% Adjust page layout to accommodate header
+% \geometry{headheight=1.2cm, headsep=0.5cm}
+
+% Title information
+\title{\textbf{\LARGE My Cool Magazine-Style Report}}
+\author{Author Name}
+\date{March 2025}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+% Logo row
+\begin{tikzpicture}
+\node[inner sep=0pt] (iitm) at (-6,0) {\includegraphics[height=2cm]{figures/IIT_Madras_Logo.svg.png}};
+\node[inner sep=0pt] (cerai) at (0,0) {\includegraphics[height=2cm]{figures/CeRAI_Logo_Final.png.pdf}};
+\node[inner sep=0pt] (wsai) at (6,0) {\includegraphics[height=2.3cm]{figures/WSAI_Logo_Footer.png}};
+\end{tikzpicture}
+
+\vspace{2cm}
+
+{\Huge\bfseries\color{iitblue} Your Report Title Here\par}
+\vspace{1cm}
+{\Large\itshape A Comprehensive Analysis of [Topic]\par}
+
+\vfill
+
+{\large Prepared by:\par}
+{\Large \textbf{Dr. Gokul S Krishnan}\par}
+
+
+\vfill
+% {\large For:\par}
+{\Large Centre for Responsible AI (CeRAI)\par}
+{\Large Wadhwani School of Data Science and AI (WSAI)\par}
+{\Large Indian Institute of Technology Madras\par}
+
+\vfill
+
+{\large March 2, 2025\par}
+
+\end{center}
+\end{titlepage}
+
+\newpage  % Start new page for content
+
+% Geometry to make long edge. Comment to make everything same
+\newgeometry{left=3cm,right=2cm,headheight=1.2cm, headsep=0.5cm}
+% set number of columns; remove if you need single column
+\begin{multicols}{2}
+
+% Introduction section with a stylish box
+\begin{tcolorbox}[magazineBox, title=Introduction]
+Welcome to this magazine-style report! This document showcases how you can use LaTeX to create professional, visually appealing layouts. From stylish boxes to multi-column formatting, this template has everything you need.
+\end{tcolorbox}
+
+
+% Add an image with caption
+
+\begin{figure}[H]
+    \includegraphics[width=\columnwidth]{example-image} % Replace with your image
+    \caption{A sample image that adds flair to your report.}
+\end{figure}
+
+
+% Section: Features of the Template
+\vspace{1em}
+\section{Features of the Template}
+This template includes:
+\begin{itemize}
+    \item Multi-column layout for a magazine feel.
+    \item Stylish boxes using the `tcolorbox` package.
+    \item Custom colors for a modern look.
+    \item Space for images and captions.
+    \item Easy customization!
+    \item Header with logo space and page numbers.
+\end{itemize}
+
+% Highlight Box Example
+\vspace{1em}
+\begin{tcolorbox}[highlightBox, title=Pro Tip!]
+Use high-quality images and consistent color schemes to make your report stand out!
+\end{tcolorbox}
+
+\begin{figure*}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{example-image} % Replace with your cover image
+    \hrulefill
+    \textit{\large A visually stunning report designed to impress!}
+    \label{fig:enter-label}
+\end{figure*}
+
+% Another subsection with stylish formatting
+\vspace{1em}
+\subsection{Why Use LaTeX?}
+LaTeX is perfect for creating professional documents because:
+\begin{enumerate}
+    \item It ensures consistent formatting.
+    \item It allows precise control over layout and typography.
+    \item It supports advanced features like cross-referencing, bibliographies, and more.
+\end{enumerate}
+
+\vspace{-1em}
+
+% Closing remarks in a stylish box
+\begin{tcolorbox}[magazineBox, title=Closing Remarks]
+Thank you for reading this magazine-style report template! With LaTeX, you can create stunning documents that leave a lasting impression.
+\end{tcolorbox}
+
+
+
+% Some dummy text to fill space
+\lipsum[1-4]
+
+% End multi-column layout
+\end{multicols}
+
+
+\end{document}
